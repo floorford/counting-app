@@ -45,8 +45,8 @@ export default class Counter extends Component {
 
 const styles = StyleSheet.create({
   buttonSet: {
-  flexDirection: 'row',
-  marginVertical: 5
+    flexDirection: 'row',
+    marginVertical: 5,
   },
   buttons: {
     borderStyle: 'solid',
@@ -54,8 +54,9 @@ const styles = StyleSheet.create({
     padding: 5,
     height: 50,
     width: 50,
-    alignContent: 'center',
     justifyContent: 'center',
+    backgroundColor: '#5a2961',
+    borderColor: '#5a2961',
   },
   buttonText: {
     color: 'white',

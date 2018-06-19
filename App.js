@@ -1,7 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+
+import { StyleSheet, Text, View, Image, ScrollView, TouchableHighlight } from 'react-native';
+
+import moment from 'moment';
 
 import Counter from './Counter';
+import Reseter from './Reseter';
 
 const source = require('./assets/count.jpg');
 
@@ -13,6 +17,10 @@ export default class App extends React.Component {
       count: 0,
       history: [],
     }
+
+    this.handleResetCounter = this.handleResetCounter.bind(this);
+    this.handleResetHistory = this.handleResetHistory.bind(this);
+
   }
 
   handleChange(amount) {
@@ -22,7 +30,7 @@ export default class App extends React.Component {
 
     amount === 1 ? change = "Incremented" : change = "Decremented"
 
-    let sentence = `Today at ${new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', hour12: true})}: ${change} from ${this.state.count} to ${newValue}`
+    let sentence = `${moment().calendar()}: ${change} from ${this.state.count} to ${newValue}`
 
     if (newValue >= 0 && newValue <= max) {
       count = newValue
@@ -31,6 +39,18 @@ export default class App extends React.Component {
         history: this.state.history.concat(sentence)
       });
     }
+  }
+
+  handleResetCounter() {
+    this.setState ({
+      count: 0,
+    })
+  }
+
+  handleResetHistory() {
+    this.setState ({
+      history: [],
+    })
   }
 
   render() {
@@ -42,6 +62,7 @@ export default class App extends React.Component {
         <Text style={ styles.title }>The Count</Text>
         <Image source={ source } style={ styles.image }/>
         <Counter count={ count } onPlus={ e => this.handleChange(1) } onSubtract={ e => this.handleChange(-1) }/>
+        <Reseter onResetHistory={ this.handleResetHistory } onResetCounter={ this.handleResetCounter }/>
         <ScrollView>
           <Text style={ styles.history }>History</Text>
           { history.map((item, i) =>
