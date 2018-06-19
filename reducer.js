@@ -19,10 +19,10 @@ const updateCounter = (state, { amount }) => {
   let max = 10;
   let newValue = state.count + amount;
   let change;
+  console.log(state)
+  amount === 1 ? change = "Inc" : change = "Dec"
 
-  amount === 1 ? change = "Incremented" : change = "Decremented"
-
-  let sentence = `${moment().calendar()}: ${change} from ${state.count} to ${newValue}`
+  let sentence = `${moment().calendar()}: ${change}remented from ${state.count} to ${newValue}`
 
   if (newValue >= 0 && newValue <= max) {
     count = newValue
