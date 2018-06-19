@@ -2,23 +2,31 @@ import React, { Component } from "react";
 
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-export default class Reseter extends Component {
+class Reseter extends Component {
   constructor(props) {
     super(props)
+
+    this.resetCounter = this.resetCounter.bind(this);
+    this.resetHistory = this.resetHistory.bind(this);
+  }
+
+  resetCounter(){
+    this.props.onResetCounter();
+  }
+
+  resetHistory(){
+    this.props.onResetHistory();
   }
 
   render() {
-
-    const { onResetCounter, onResetHistory } = this.props;
-
     return (
       <View style={ styles.buttonSet }>
-        <TouchableHighlight style={ styles.reset } onPress={ onResetCounter } underlayColor='#825f87'>
+        <TouchableHighlight style={ styles.reset } onPress={ this.resetCounter } underlayColor='#825f87'>
           <Text style={ styles.resetText }>
             Reset Counter
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={ styles.reset } onPress={ onResetHistory } underlayColor='#825f87'>
+        <TouchableHighlight style={ styles.reset } onPress={ this.resetHistory } underlayColor='#825f87'>
           <Text style={ styles.resetText }>
             Reset History
           </Text>
@@ -27,7 +35,6 @@ export default class Reseter extends Component {
     )
   }
 }
-
 
 const styles = StyleSheet.create({
   buttonSet: {
@@ -53,3 +60,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default Reseter;
