@@ -1,6 +1,7 @@
 // importing moment for the time history
 import moment from 'moment';
 
+// reducer functions:
 const resetCounter = (state) => {
   return {
     ...state,
@@ -35,6 +36,8 @@ const updateCounter = (state, { amount }) => {
   }
 };
 
+// the reducer switch statement:
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "resetCounter": return resetCounter(state, action);
@@ -43,5 +46,4 @@ const reducer = (state, action) => {
     default: return state;
   }
 }
-
 export default reducer;
