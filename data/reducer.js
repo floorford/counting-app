@@ -19,7 +19,6 @@ const updateCounter = (state, { amount }) => {
   let max = 10;
   let newValue = state.count + amount;
   let change;
-  console.log(state)
   amount === 1 ? change = "Inc" : change = "Dec"
 
   let sentence = `${moment().calendar()}: ${change}remented from ${state.count} to ${newValue}`

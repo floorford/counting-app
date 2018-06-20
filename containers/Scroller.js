@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 // import in the component
-import Scroller from "../Scroller";
+import Scroller from "../components/Scroller";
 
 // mapStateToProps is passed in the current state
 // it should return an object, which gets passed in as props to the connected component

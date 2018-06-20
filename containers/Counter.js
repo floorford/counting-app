@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // importing the action
-import { updateCounter } from "../actions";
+import { updateCounter } from "../data/actions";
 
 // import in the component
-import Counter from "../Counter";
+import Counter from "../components/Counter";
 
 // mapStateToProps is passed in the current state
 // it should return an object, which gets passed in as props to the connected component

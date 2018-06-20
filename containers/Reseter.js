@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // importing the action
-import { resetCounter, resetHistory } from "../actions";
+import { resetCounter, resetHistory } from "../data/actions";
 
 // import in the component
-import Reseter from "../Reseter";
+import Reseter from "../components/Reseter";
 
 const mapDispatchToProps = dispatch => {
   return {
